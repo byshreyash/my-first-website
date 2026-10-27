@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Professional Vocal Microphone | Rhythm House</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+        header {
+            background: #101828;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #00C2FF;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #D0D5DD;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #00C2FF;
+        }
+
+        .shop-btn {
+            background: #6C3BFF;
+            color: white !important;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        .shop-btn:hover {
+            background: #5930D8;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            padding: 25px 7%;
+            font-size: 14px;
+            color: #667085;
+        }
+
+        .breadcrumb a {
+            color: #6C3BFF;
+            font-weight: 600;
+        }
+
+        /* PRODUCT SECTION */
+        .product-section {
+            width: 86%;
+            max-width: 1200px;
+            margin: 10px auto 70px;
+        }
+
+        .product-container {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 18px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+        }
+
+        /* IMAGE */
+        .image-area {
+            background: #F8F9FC;
+            min-height: 600px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #E4E7EC;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 480px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* PRODUCT INFO */
+        .product-info {
+            padding: 55px 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #EDE9FE;
+            color: #6C3BFF;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .category {
+            color: #667085;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .product-info h1 {
+            font-size: 40px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        /* RATING */
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .stars {
+            color: #FFB547;
+            font-size: 18px;
+        }
+
+        .rating span {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* PRICE */
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #6C3BFF;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .stock {
+            color: #039855;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 18px 0 25px;
+        }
+
+        /* DESCRIPTION */
+        .description {
+            color: #667085;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* FEATURES */
+        .features-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            color: #475467;
+            font-size: 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .feature::before {
+            content: "✓";
+            color: #6C3BFF;
+            font-weight: bold;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 800;
+            text-align: center;
+            border: 2px solid #6C3BFF;
+            transition: 0.3s;
+        }
+
+        .cart-btn {
+            color: #6C3BFF;
+            background: white;
+        }
+
+        .cart-btn:hover {
+            background: #F2EEFF;
+        }
+
+        .buy-btn {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        .buy-btn:hover {
+            background: #5930D8;
+        }
+
+        /* TRUST */
+        .trust {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding-top: 25px;
+            border-top: 1px solid #E4E7EC;
+        }
+
+        .trust-item {
+            text-align: center;
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .trust-item strong {
+            display: block;
+            color: #101828;
+            margin-bottom: 5px;
+        }
+
+        /* SPECIFICATIONS */
+        .details-section {
+            margin-top: 35px;
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 18px;
+            padding: 40px;
+        }
+
+        .details-section h2 {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #E4E7EC;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .spec {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 17px 20px;
+            border-bottom: 1px solid #E4E7EC;
+            font-size: 14px;
+        }
+
+        .spec:nth-child(odd) {
+            border-right: 1px solid #E4E7EC;
+        }
+
+        .spec:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .spec span:first-child {
+            color: #667085;
+        }
+
+        .spec span:last-child {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        /* RELATED PRODUCTS */
+        .related {
+            margin-top: 70px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+        }
+
+        .section-heading a {
+            color: #6C3BFF;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .related-card {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(16, 24, 40, 0.08);
+        }
+
+        .related-image {
+            height: 180px;
+            background: #F8F9FC;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            overflow: hidden;
+        }
+
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .related-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            color: #6C3BFF;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .view-btn {
+            display: block;
+            text-align: center;
+            border: 1px solid #D0D5DD;
+            padding: 11px;
+            border-radius: 7px;
+            color: #344054;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .view-btn:hover {
+            border-color: #6C3BFF;
+            color: #6C3BFF;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101828;
+            color: white;
+            margin-top: 80px;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #344054;
+        }
+
+        .footer-brand h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h2 span {
+            color: #00C2FF;
+        }
+
+        .footer-brand p {
+            color: #98A2B3;
+            line-height: 1.7;
+            max-width: 330px;
+            font-size: 14px;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #98A2B3;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .footer-column a:hover {
+            color: #00C2FF;
+        }
+
+        .copyright {
+            padding-top: 25px;
+            color: #98A2B3;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+
+            .image-area {
+                border-right: none;
+                border-bottom: 1px solid #E4E7EC;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav a:not(.shop-btn) {
+                display: none;
+            }
+
+            .product-section {
+                width: 92%;
+            }
+
+            .image-area {
+                min-height: 400px;
+                padding: 20px;
+            }
+
+            .product-image {
+                min-height: 360px;
+            }
+
+            .product-image img {
+                height: 350px;
+            }
+
+            .product-info {
+                padding: 35px 25px;
+            }
+
+            .product-info h1 {
+                font-size: 30px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .trust {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .details-section {
+                padding: 25px;
+            }
+
+            .specs {
+                grid-template-columns: 1fr;
+            }
+
+            .spec:nth-child(odd) {
+                border-right: none;
+            }
+
+            .spec:nth-last-child(-n+2) {
+                border-bottom: 1px solid #E4E7EC;
+            }
+
+            .spec:last-child {
+                border-bottom: none;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <a href="index.html" class="logo">
+            Rhythm<span>House</span>
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html" class="active">PRODUCTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="products.html" class="shop-btn">SHOP NOW</a>
+        </nav>
+
+    </header>
+
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+
+        <a href="index.html">Home</a>
+        &nbsp; / &nbsp;
+
+        <a href="products.html">Products</a>
+        &nbsp; / &nbsp;
+
+        Professional Vocal Microphone
+
+    </div>
+
+
+    <!-- PRODUCT SECTION -->
+    <section class="product-section">
+
+        <div class="product-container">
+
+            <!-- IMAGE -->
+            <div class="image-area">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/vocal-microphone.jpg"
+                        alt="Professional Vocal Microphone"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+            <div class="product-info">
+
+                <span class="badge">
+                    PROFESSIONAL AUDIO
+                </span>
+
+                <p class="category">
+                    Studio Audio
+                </p>
+
+                <h1>
+                    Professional Vocal Microphone
+                </h1>
+
+
+                <!-- RATING -->
+                <div class="rating">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <span>
+                        4.7 / 5 · 27 Reviews
+                    </span>
+
+                </div>
+
+
+                <!-- PRICE -->
+                <div class="price-row">
+
+                    <span class="price">
+                        ₹4,999
+                    </span>
+
+                </div>
+
+
+                <!-- STOCK -->
+                <div class="stock">
+                    ● In Stock — Ready to Ship
+                </div>
+
+
+                <!-- DESCRIPTION -->
+                <p class="description">
+
+                    Capture clear and powerful vocals with our Professional
+                    Vocal Microphone. Designed for singers, performers,
+                    rehearsals, stage use and home recording, it delivers
+                    reliable sound quality and comfortable handling.
+
+                </p>
+
+
+                <!-- FEATURES -->
+                <h3 class="features-title">
+                    Key Features
+                </h3>
+
+                <div class="features">
+
+                    <div class="feature">
+                        Clear vocal sound
+                    </div>
+
+                    <div class="feature">
+                        Professional performance
+                    </div>
+
+                    <div class="feature">
+                        Dynamic microphone design
+                    </div>
+
+                    <div class="feature">
+                        Strong vocal response
+                    </div>
+
+                    <div class="feature">
+                        Comfortable handling
+                    </div>
+
+                    <div class="feature">
+                        Suitable for live & studio use
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="buttons">
+
+                    <a href="cart.html" class="btn cart-btn">
+                        ADD TO CART
+                    </a>
+
+                    <a href="checkout.html" class="btn buy-btn">
+                        BUY NOW
+                    </a>
+
+                </div>
+
+
+                <!-- TRUST -->
+                <div class="trust">
+
+                    <div class="trust-item">
+
+                        <strong>
+                            🚚 FREE DELIVERY
+                        </strong>
+
+                        On selected orders
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <strong>
+                            ✓ QUALITY CHECK
+                        </strong>
+
+                        Tested before dispatch
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <strong>
+                            🔒 SECURE
+                        </strong>
+
+                        Safe checkout
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SPECIFICATIONS -->
+        <div class="details-section">
+
+            <h2>
+                Product Specifications
+            </h2>
+
+            <div class="specs">
+
+                <div class="spec">
+
+                    <span>
+                        Product Type
+                    </span>
+
+                    <span>
+                        Vocal Microphone
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Microphone Type
+                    </span>
+
+                    <span>
+                        Dynamic
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Best For
+                    </span>
+
+                    <span>
+                        Vocals & Performance
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Sound
+                    </span>
+
+                    <span>
+                        Clear Vocal Response
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Usage
+                    </span>
+
+                    <span>
+                        Live & Studio
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Design
+                    </span>
+
+                    <span>
+                        Handheld
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Suitable For
+                    </span>
+
+                    <span>
+                        Singers & Performers
+                    </span>
+
+                </div>
+
+
+                <div class="spec">
+
+                    <span>
+                        Price
+                    </span>
+
+                    <span>
+                        ₹4,999
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RELATED PRODUCTS -->
+        <div class="related">
+
+            <div class="section-heading">
+
+                <h2>
+                    You May Also Like
+                </h2>
+
+                <a href="products.html">
+                    VIEW ALL →
+                </a>
+
+            </div>
+
+
+            <div class="related-grid">
+
+                <!-- STUDIO MICROPHONE -->
+                <div class="related-card">
+
+                    <div class="related-image">
+
+                        <img
+                            src="images/studio-microphone.jpg"
+                            alt="Professional Studio Microphone"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Professional Studio Microphone
+                    </h3>
+
+                    <p>
+                        ₹8,999
+                    </p>
+
+                    <a
+                        href="product-microphone.html"
+                        class="view-btn"
+                    >
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+
+                <!-- HEADPHONES -->
+                <div class="related-card">
+
+                    <div class="related-image">
+
+                        <img
+                            src="images/headphones.jpg"
+                            alt="Studio Monitoring Headphones"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Studio Monitoring Headphones
+                    </h3>
+
+                    <p>
+                        ₹5,499
+                    </p>
+
+                    <a
+                        href="product-headphones.html"
+                        class="view-btn"
+                    >
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+
+                <!-- ACCESSORIES -->
+                <div class="related-card">
+
+                    <div class="related-image">
+
+                        <img
+                            src="images/music-accessories.jpg"
+                            alt="Essential Music Accessories Kit"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Essential Music Accessories Kit
+                    </h3>
+
+                    <p>
+                        ₹1,999
+                    </p>
+
+                    <a
+                        href="product-accessories.html"
+                        class="view-btn"
+                    >
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <h2>
+                    Rhythm<span>House</span>
+                </h2>
+
+                <p>
+
+                    Your trusted destination for quality musical instruments
+                    and professional audio equipment. Find your sound and
+                    create your rhythm with Rhythm House.
+
+                </p>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+            <div class="footer-column">
+
+                <h3>
+                    QUICK LINKS
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+            <div class="footer-column">
+
+                <h3>
+                    PRODUCTS
+                </h3>
+
+                <a href="product-guitar.html">
+                    Guitars
+                </a>
+
+                <a href="product-keyboard.html">
+                    Keyboards
+                </a>
+
+                <a href="product-drums.html">
+                    Drums
+                </a>
+
+                <a href="product-microphone.html">
+                    Audio
+                </a>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+            <div class="footer-column">
+
+                <h3>
+                    SUPPORT
+                </h3>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+                <a href="about.html">
+                    About Rhythm House
+                </a>
+
+                <a href="cart.html">
+                    Shopping Cart
+                </a>
+
+                <a href="checkout.html">
+                    Checkout
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Rhythm House. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

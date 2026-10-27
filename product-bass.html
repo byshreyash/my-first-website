@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Bass Guitar | Rhythm House</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+        header {
+            background: #101828;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #00C2FF;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #D0D5DD;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #00C2FF;
+        }
+
+        .shop-btn {
+            background: #6C3BFF;
+            color: white !important;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        .shop-btn:hover {
+            background: #5930D8;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            padding: 25px 7%;
+            font-size: 14px;
+            color: #667085;
+        }
+
+        .breadcrumb a {
+            color: #6C3BFF;
+            font-weight: 600;
+        }
+
+        /* PRODUCT SECTION */
+        .product-section {
+            width: 86%;
+            max-width: 1200px;
+            margin: 10px auto 70px;
+        }
+
+        .product-container {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 18px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 8px 30px rgba(16, 24, 40, 0.06);
+        }
+
+        /* PRODUCT IMAGE */
+        .image-area {
+            background: #F8F9FC;
+            min-height: 600px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #E4E7EC;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 520px;
+            height: 500px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* PRODUCT INFO */
+        .product-info {
+            padding: 55px 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #EDE9FE;
+            color: #6C3BFF;
+            padding: 7px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .category {
+            color: #667085;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .product-info h1 {
+            font-size: 40px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .stars {
+            color: #FFB547;
+            font-size: 18px;
+        }
+
+        .rating span {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #6C3BFF;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .old-price {
+            color: #98A2B3;
+            text-decoration: line-through;
+            font-size: 17px;
+        }
+
+        .discount {
+            background: #ECFDF3;
+            color: #027A48;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .stock {
+            color: #039855;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 18px 0 25px;
+        }
+
+        .description {
+            color: #667085;
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        /* FEATURES */
+        .features-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            color: #475467;
+            font-size: 14px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .feature::before {
+            content: "✓";
+            color: #6C3BFF;
+            font-weight: bold;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 16px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 800;
+            text-align: center;
+            border: 2px solid #6C3BFF;
+            transition: 0.3s;
+        }
+
+        .cart-btn {
+            color: #6C3BFF;
+            background: white;
+        }
+
+        .cart-btn:hover {
+            background: #F2EEFF;
+        }
+
+        .buy-btn {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        .buy-btn:hover {
+            background: #5930D8;
+        }
+
+        /* TRUST */
+        .trust {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding-top: 25px;
+            border-top: 1px solid #E4E7EC;
+        }
+
+        .trust-item {
+            text-align: center;
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .trust-item strong {
+            display: block;
+            color: #101828;
+            margin-bottom: 5px;
+        }
+
+        /* SPECIFICATIONS */
+        .details-section {
+            margin-top: 35px;
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 18px;
+            padding: 40px;
+        }
+
+        .details-section h2 {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #E4E7EC;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .spec {
+            display: flex;
+            justify-content: space-between;
+            padding: 17px 20px;
+            border-bottom: 1px solid #E4E7EC;
+            font-size: 14px;
+        }
+
+        .spec:nth-child(odd) {
+            border-right: 1px solid #E4E7EC;
+        }
+
+        .spec:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .spec span:first-child {
+            color: #667085;
+        }
+
+        .spec span:last-child {
+            font-weight: 700;
+        }
+
+        /* RELATED PRODUCTS */
+        .related {
+            margin-top: 70px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+        }
+
+        .section-heading a {
+            color: #6C3BFF;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .related-card {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(16, 24, 40, 0.08);
+        }
+
+        .related-image {
+            height: 180px;
+            background: #F8F9FC;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            overflow: hidden;
+        }
+
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .related-image .placeholder {
+            font-size: 70px;
+        }
+
+        .related-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            color: #6C3BFF;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .view-btn {
+            display: block;
+            text-align: center;
+            border: 1px solid #D0D5DD;
+            padding: 11px;
+            border-radius: 7px;
+            color: #344054;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .view-btn:hover {
+            border-color: #6C3BFF;
+            color: #6C3BFF;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101828;
+            color: white;
+            margin-top: 80px;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #344054;
+        }
+
+        .footer-brand h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand h2 span {
+            color: #00C2FF;
+        }
+
+        .footer-brand p {
+            color: #98A2B3;
+            line-height: 1.7;
+            max-width: 330px;
+            font-size: 14px;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #98A2B3;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .footer-column a:hover {
+            color: #00C2FF;
+        }
+
+        .copyright {
+            padding-top: 25px;
+            color: #98A2B3;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+
+            .image-area {
+                border-right: none;
+                border-bottom: 1px solid #E4E7EC;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav a:not(.shop-btn) {
+                display: none;
+            }
+
+            .product-section {
+                width: 92%;
+            }
+
+            .image-area {
+                min-height: 400px;
+                padding: 20px;
+            }
+
+            .product-image {
+                min-height: 360px;
+            }
+
+            .product-image img {
+                height: 350px;
+            }
+
+            .product-info {
+                padding: 35px 25px;
+            }
+
+            .product-info h1 {
+                font-size: 30px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .trust {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .details-section {
+                padding: 25px;
+            }
+
+            .specs {
+                grid-template-columns: 1fr;
+            }
+
+            .spec:nth-child(odd) {
+                border-right: none;
+            }
+
+            .spec:nth-last-child(-n+2) {
+                border-bottom: 1px solid #E4E7EC;
+            }
+
+            .spec:last-child {
+                border-bottom: none;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="logo">
+        Rhythm<span>House</span>
+    </a>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="products.html" class="active">PRODUCTS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="products.html" class="shop-btn">SHOP NOW</a>
+    </nav>
+</header>
+
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <a href="index.html">Home</a>
+    &nbsp; / &nbsp;
+    <a href="products.html">Products</a>
+    &nbsp; / &nbsp;
+    Electric Bass Guitar
+</div>
+
+
+<!-- PRODUCT -->
+<section class="product-section">
+
+    <div class="product-container">
+
+        <!-- PRODUCT IMAGE -->
+        <div class="image-area">
+            <div class="product-image">
+                <img src="images/bass-guitar.jpg" alt="Electric Bass Guitar">
+            </div>
+        </div>
+
+
+        <!-- PRODUCT INFO -->
+        <div class="product-info">
+
+            <span class="badge">PREMIUM QUALITY</span>
+
+            <p class="category">Bass Guitars</p>
+
+            <h1>Electric Bass Guitar</h1>
+
+            <div class="rating">
+                <div class="stars">★★★★★</div>
+                <span>4.8 / 5 · 32 Reviews</span>
+            </div>
+
+            <div class="price-row">
+                <span class="price">₹22,499</span>
+            </div>
+
+            <div class="stock">
+                ● In Stock — Ready to Ship
+            </div>
+
+            <p class="description">
+                Feel the groove with our Electric Bass Guitar, designed for
+                powerful low-end tones and comfortable playing. It is suitable
+                for practice, rehearsals, studio sessions and live performances.
+            </p>
+
+            <h3 class="features-title">Key Features</h3>
+
+            <div class="features">
+                <div class="feature">Solid basswood body</div>
+                <div class="feature">Comfortable bass neck</div>
+                <div class="feature">Powerful bass tone</div>
+                <div class="feature">High-quality pickup system</div>
+                <div class="feature">Smooth fretboard</div>
+                <div class="feature">Suitable for beginners & professionals</div>
+            </div>
+
+            <div class="buttons">
+                <a href="cart.html" class="btn cart-btn">
+                    ADD TO CART
+                </a>
+
+                <a href="checkout.html" class="btn buy-btn">
+                    BUY NOW
+                </a>
+            </div>
+
+            <div class="trust">
+                <div class="trust-item">
+                    <strong>🚚 FREE DELIVERY</strong>
+                    On selected orders
+                </div>
+
+                <div class="trust-item">
+                    <strong>✓ QUALITY CHECK</strong>
+                    Tested before dispatch
+                </div>
+
+                <div class="trust-item">
+                    <strong>🔒 SECURE</strong>
+                    Safe checkout
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SPECIFICATIONS -->
+    <div class="details-section">
+
+        <h2>Product Specifications</h2>
+
+        <div class="specs">
+
+            <div class="spec">
+                <span>Product Type</span>
+                <span>Electric Bass Guitar</span>
+            </div>
+
+            <div class="spec">
+                <span>Body</span>
+                <span>Solid Body</span>
+            </div>
+
+            <div class="spec">
+                <span>Strings</span>
+                <span>4 Strings</span>
+            </div>
+
+            <div class="spec">
+                <span>Pickup</span>
+                <span>Electric Pickup System</span>
+            </div>
+
+            <div class="spec">
+                <span>Neck</span>
+                <span>Comfortable Bass Neck</span>
+            </div>
+
+            <div class="spec">
+                <span>Tone</span>
+                <span>Powerful Low-End Tone</span>
+            </div>
+
+            <div class="spec">
+                <span>Best For</span>
+                <span>Rock, Pop & Live Performance</span>
+            </div>
+
+            <div class="spec">
+                <span>Price</span>
+                <span>₹22,499</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RELATED PRODUCTS -->
+    <div class="related">
+
+        <div class="section-heading">
+            <h2>You May Also Like</h2>
+            <a href="products.html">VIEW ALL →</a>
+        </div>
+
+        <div class="related-grid">
+
+            <!-- Acoustic Guitar -->
+            <div class="related-card">
+
+                <div class="related-image">
+                    <img src="images/acoustic-guitar.jpg"
+                         alt="Premium Acoustic Guitar">
+                </div>
+
+                <h3>Premium Acoustic Guitar</h3>
+
+                <p>₹12,999</p>
+
+                <a href="product-guitar.html" class="view-btn">
+                    VIEW PRODUCT
+                </a>
+
+            </div>
+
+
+            <!-- Electric Guitar -->
+            <div class="related-card">
+
+                <div class="related-image">
+                    <img src="images/electric-guitar.jpg"
+                         alt="Classic Electric Guitar">
+                </div>
+
+                <h3>Classic Electric Guitar</h3>
+
+                <p>₹24,999</p>
+
+                <a href="product-electric-guitar.html" class="view-btn">
+                    VIEW PRODUCT
+                </a>
+
+            </div>
+
+
+            <!-- Keyboard -->
+            <div class="related-card">
+
+                <div class="related-image">
+                    <img src="images/keyboard.jpg"
+                         alt="Digital Performance Keyboard">
+                </div>
+
+                <h3>Digital Performance Keyboard</h3>
+
+                <p>₹18,499</p>
+
+                <a href="product-keyboard.html" class="view-btn">
+                    VIEW PRODUCT
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <h2>Rhythm<span>House</span></h2>
+
+            <p>
+                Your trusted destination for quality musical instruments
+                and professional audio equipment. Find your sound and
+                create your rhythm with Rhythm House.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>QUICK LINKS</h3>
+
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>PRODUCTS</h3>
+
+            <a href="product-guitar.html">Guitars</a>
+            <a href="product-keyboard.html">Keyboards</a>
+            <a href="product-drums.html">Drums</a>
+            <a href="product-microphone.html">Audio</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>SUPPORT</h3>
+
+            <a href="contact.html">Contact Us</a>
+            <a href="about.html">About Rhythm House</a>
+            <a href="cart.html">Shopping Cart</a>
+            <a href="checkout.html">Checkout</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Rhythm House. All Rights Reserved.
+    </div>
+
+</footer>
+
+</body>
+</html>

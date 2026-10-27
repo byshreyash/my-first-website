@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Rhythm House</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            background: #101828;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #6C3BFF;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #D0D5DD;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: white;
+        }
+
+        .shop-btn {
+            background: #6C3BFF;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+        }
+
+        /* HERO */
+        .page-hero {
+            background: #101828;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .page-hero p {
+            color: #00C2FF;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-hero h1 span {
+            color: #6C3BFF;
+        }
+
+        .page-hero small {
+            color: #98A2B3;
+            font-size: 15px;
+        }
+
+        /* CATEGORY BAR */
+        .category-section {
+            width: 86%;
+            max-width: 1200px;
+            margin: 35px auto 0;
+        }
+
+        .categories {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            padding: 10px 18px;
+            border-radius: 6px;
+            color: #667085;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .category:hover,
+        .category.active {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        /* PRODUCTS */
+        .products-section {
+            width: 86%;
+            max-width: 1200px;
+            margin: 45px auto 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading p {
+            color: #6C3BFF;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* CARD */
+        .product-card {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+        }
+
+        .product-image {
+            height: 230px;
+            background: #F5F7FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 15px;
+            display: block;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #6C3BFF;
+            color: white;
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .badge.sale {
+            background: #FFB547;
+            color: #101828;
+        }
+
+        .badge.new {
+            background: #00C2FF;
+            color: #101828;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .category-name {
+            color: #6C3BFF;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .description {
+            color: #667085;
+            font-size: 13px;
+            line-height: 1.6;
+            min-height: 42px;
+        }
+
+        .rating {
+            margin: 14px 0;
+            font-size: 13px;
+        }
+
+        .rating span {
+            color: #FFB547;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .old-price {
+            color: #98A2B3;
+            text-decoration: line-through;
+            font-size: 13px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .details-btn {
+            border: 1px solid #6C3BFF;
+            color: #6C3BFF;
+            padding: 12px;
+            text-align: center;
+            border-radius: 7px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .details-btn:hover {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        .buy-btn {
+            background: #6C3BFF;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            border-radius: 7px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .buy-btn:hover {
+            background: #5730D6;
+        }
+
+        /* OFFER */
+        .offer {
+            background: #101828;
+            color: white;
+            width: 86%;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            border-radius: 15px;
+            padding: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .offer p {
+            color: #00C2FF;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .offer h2 {
+            font-size: 28px;
+        }
+
+        .offer-btn {
+            background: #6C3BFF;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101828;
+            color: white;
+            padding: 50px 7% 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #98A2B3;
+            margin-top: 15px;
+            max-width: 350px;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .footer-column h3 {
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #98A2B3;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #344054;
+            padding-top: 22px;
+            color: #98A2B3;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .offer {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .page-hero h1 {
+                font-size: 34px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-section,
+            .category-section,
+            .offer {
+                width: 92%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            Rhythm<span>House</span>
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html" class="active">PRODUCTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="products.html" class="shop-btn">SHOP NOW</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="page-hero">
+
+        <p>OUR COLLECTION</p>
+
+        <h1>FIND YOUR <span>SOUND.</span></h1>
+
+        <small>
+            Explore quality instruments and audio equipment made for every musician.
+        </small>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="category-section">
+
+        <div class="categories">
+
+            <a href="#all" class="category active">ALL PRODUCTS</a>
+            <a href="#guitars" class="category">GUITARS</a>
+            <a href="#keyboards" class="category">KEYBOARDS</a>
+            <a href="#drums" class="category">DRUMS</a>
+            <a href="#audio" class="category">AUDIO</a>
+            <a href="#accessories" class="category">ACCESSORIES</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="all">
+
+        <div class="section-heading">
+
+            <p>SHOP OUR COLLECTION</p>
+
+            <h2>Featured Products</h2>
+
+        </div>
+
+
+        <div class="product-grid">
+
+            <!-- 1 ACOUSTIC GUITAR -->
+            <div class="product-card" id="guitars">
+
+                <div class="product-image">
+
+                    <span class="badge">BEST SELLER</span>
+
+                    <img src="images/acoustic-guitar.jpg" alt="Premium Acoustic Guitar">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Guitars</div>
+
+                    <h3>Premium Acoustic Guitar</h3>
+
+                    <p class="description">
+                        Beautiful acoustic tone with a comfortable professional design.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.9
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹12,999</div>
+                        <div class="old-price">₹15,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-guitar.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 2 ELECTRIC GUITAR -->
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="badge new">NEW</span>
+
+                    <img src="images/electric-guitar.jpg" alt="Classic Electric Guitar">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Guitars</div>
+
+                    <h3>Classic Electric Guitar</h3>
+
+                    <p class="description">
+                        Powerful sound and stylish design for modern guitar players.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.8
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹24,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-electric-guitar.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3 KEYBOARD -->
+            <div class="product-card" id="keyboards">
+
+                <div class="product-image">
+
+                    <span class="badge sale">SPECIAL PRICE</span>
+
+                    <img src="images/keyboard.jpg" alt="Digital Performance Keyboard">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Keyboards</div>
+
+                    <h3>Digital Performance Keyboard</h3>
+
+                    <p class="description">
+                        Versatile digital keyboard with rich tones and performance features.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.7
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹18,499</div>
+                        <div class="old-price">₹21,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-keyboard.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 4 DRUMS -->
+            <div class="product-card" id="drums">
+
+                <div class="product-image">
+
+                    <span class="badge">POPULAR</span>
+
+                    <img src="images/drums.jpg" alt="Complete Drum Kit">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Drums</div>
+
+                    <h3>Complete Drum Kit</h3>
+
+                    <p class="description">
+                        Complete drum setup for practice, performance and recording.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.8
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹29,999</div>
+                        <div class="old-price">₹34,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-drums.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 5 STUDIO MICROPHONE -->
+            <div class="product-card" id="audio">
+
+                <div class="product-image">
+
+                    <span class="badge new">NEW</span>
+
+                    <img src="images/studio-microphone.jpg" alt="Professional Studio Microphone">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Audio</div>
+
+                    <h3>Professional Studio Microphone</h3>
+
+                    <p class="description">
+                        Clear studio-quality recording for vocals, podcasts and instruments.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.9
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹8,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-microphone.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 6 HEADPHONES -->
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="badge sale">SALE</span>
+
+                    <img src="images/headphones.jpg" alt="Studio Monitoring Headphones">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Audio</div>
+
+                    <h3>Studio Monitoring Headphones</h3>
+
+                    <p class="description">
+                        Detailed and balanced sound for music production and listening.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.7
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹5,499</div>
+                        <div class="old-price">₹6,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-headphones.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 7 BASS -->
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="badge">POPULAR</span>
+
+                    <img src="images/bass-guitar.jpg" alt="Electric Bass Guitar">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Guitars</div>
+
+                    <h3>Electric Bass Guitar</h3>
+
+                    <p class="description">
+                        Deep powerful bass tone with a comfortable playing experience.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.8
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹22,499</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-bass.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 8 VOCAL MICROPHONE -->
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="badge new">NEW</span>
+
+                    <img src="images/vocal-microphone.jpg" alt="Professional Vocal Microphone">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Audio</div>
+
+                    <h3>Professional Vocal Microphone</h3>
+
+                    <p class="description">
+                        Reliable vocal microphone designed for live performances.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.8
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹4,999</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-vocal-mic.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 9 ACCESSORIES -->
+            <div class="product-card" id="accessories">
+
+                <div class="product-image">
+
+                    <span class="badge sale">DEAL</span>
+
+                    <img src="images/music-accessories.jpg" alt="Essential Music Accessories Kit">
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="category-name">Accessories</div>
+
+                    <h3>Essential Music Accessories Kit</h3>
+
+                    <p class="description">
+                        Essential accessories for musicians in one convenient kit.
+                    </p>
+
+                    <div class="rating">
+                        <span>★★★★★</span> 4.6
+                    </div>
+
+                    <div class="price-row">
+                        <div class="price">₹1,999</div>
+                        <div class="old-price">₹2,499</div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <a href="product-accessories.html" class="details-btn">
+                            DETAILS
+                        </a>
+
+                        <a href="cart.html" class="buy-btn">
+                            BUY NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OFFER -->
+    <section class="offer">
+
+        <div>
+
+            <p>SPECIAL OFFER</p>
+
+            <h2>Get Your Gear. Find Your Rhythm.</h2>
+
+        </div>
+
+        <a href="contact.html" class="offer-btn">
+            CONTACT US →
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    Rhythm<span>House</span>
+                </div>
+
+                <p>
+                    Your trusted destination for musical instruments,
+                    audio equipment and everything you need to find your rhythm.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>QUICK LINKS</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>SHOP</h3>
+
+                <a href="product-guitar.html">Guitars</a>
+                <a href="product-keyboard.html">Keyboards</a>
+                <a href="product-drums.html">Drums</a>
+                <a href="product-microphone.html">Audio Gear</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Rhythm House. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>

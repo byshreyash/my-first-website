@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful | Rhythm House</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            background: #101828;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #6C3BFF;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #D0D5DD;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .shop-btn {
+            background: #6C3BFF;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+        }
+
+        /* SUCCESS */
+        .success-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        .success-box {
+            background: white;
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+            padding: 55px 40px;
+            border-radius: 16px;
+            border: 1px solid #E4E7EC;
+            box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: #E7F8EF;
+            color: #12B76A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        .success-box h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .success-box h1 span {
+            color: #6C3BFF;
+        }
+
+        .success-box > p {
+            color: #667085;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .order-number {
+            background: #F5F7FA;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .order-number p {
+            color: #667085;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .order-number strong {
+            font-size: 18px;
+        }
+
+        .order-info {
+            border-top: 1px solid #E4E7EC;
+            border-bottom: 1px solid #E4E7EC;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .order-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .order-row span:first-child {
+            color: #667085;
+        }
+
+        .order-row strong {
+            color: #101828;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .primary-btn {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #5730D6;
+        }
+
+        .secondary-btn {
+            border: 1px solid #D0D5DD;
+            color: #101828;
+            background: white;
+        }
+
+        .secondary-btn:hover {
+            background: #F5F7FA;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101828;
+            color: white;
+            padding: 35px 7% 20px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #98A2B3;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .success-box {
+                padding: 40px 22px;
+            }
+
+            .success-box h1 {
+                font-size: 28px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            Rhythm<span>House</span>
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html">PRODUCTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="products.html" class="shop-btn">SHOP NOW</a>
+        </nav>
+
+    </header>
+
+
+    <!-- SUCCESS MESSAGE -->
+    <section class="success-section">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>ORDER <span>SUCCESSFUL!</span></h1>
+
+            <p>
+                Thank you for shopping with Rhythm House.
+                Your order has been successfully placed.
+            </p>
+
+
+            <div class="order-number">
+
+                <p>ORDER NUMBER</p>
+
+                <strong>#RH20260907</strong>
+
+            </div>
+
+
+            <div class="order-info">
+
+                <div class="order-row">
+                    <span>Product</span>
+                    <strong>Premium Acoustic Guitar</strong>
+                </div>
+
+                <div class="order-row">
+                    <span>Quantity</span>
+                    <strong>1</strong>
+                </div>
+
+                <div class="order-row">
+                    <span>Total Amount</span>
+                    <strong>₹11,499</strong>
+                </div>
+
+                <div class="order-row">
+                    <span>Delivery</span>
+                    <strong>FREE</strong>
+                </div>
+
+            </div>
+
+
+            <div class="buttons">
+
+                <a href="products.html" class="btn primary-btn">
+                    CONTINUE SHOPPING
+                </a>
+
+                <a href="index.html" class="btn secondary-btn">
+                    BACK TO HOME
+                </a>
+
+                <a href="contact.html" class="btn secondary-btn">
+                    CONTACT
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Rhythm House. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

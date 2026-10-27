@@ -1,0 +1,1293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rhythm House | Find Your Rhythm</title>
+
+    <style>
+        /* ---------- BASIC RESET ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --dark: #101828;
+            --purple: #6C3BFF;
+            --blue: #00C2FF;
+            --light: #F5F7FA;
+            --text: #101828;
+            --muted: #667085;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            color: var(--purple);
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            margin: 10px 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            background: var(--purple);
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            background: var(--dark);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #D0D5DD;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--blue);
+        }
+
+        .nav-button {
+            background: var(--purple);
+            padding: 11px 18px;
+            border-radius: 6px;
+            color: white;
+        }
+
+        .nav-button:hover {
+            background: var(--blue);
+            color: white;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+
+        .hero {
+            padding: 85px 0;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(108, 59, 255, 0.15), transparent 30%),
+                var(--light);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .hero-text small {
+            color: var(--purple);
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(42px, 5vw, 72px);
+            line-height: 1.08;
+            margin: 18px 0;
+            letter-spacing: -2px;
+        }
+
+        .hero-text h1 span {
+            color: var(--purple);
+        }
+
+        .hero-text p {
+            color: var(--muted);
+            font-size: 17px;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .outline-btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .outline-btn:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            height: 480px;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 20px 20px 0 var(--purple);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -25px;
+            left: -25px;
+            background: var(--dark);
+            color: white;
+            padding: 22px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-badge strong {
+            display: block;
+            color: var(--blue);
+            font-size: 25px;
+        }
+
+        /* ---------- FEATURES ---------- */
+
+        .features {
+            background: white;
+            padding: 28px 0;
+            border-top: 1px solid #EAECF0;
+            border-bottom: 1px solid #EAECF0;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: #F0EBFF;
+            color: var(--purple);
+            border-radius: 12px;
+            font-size: 22px;
+        }
+
+        .feature-item h4 {
+            font-size: 15px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ---------- CATEGORY CARDS ---------- */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(16, 24, 40, 0.06);
+            transition: 0.35s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(108, 59, 255, 0.18);
+        }
+
+        .category-card img {
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .category-info {
+            padding: 22px;
+        }
+
+        .category-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .category-info p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .category-info a {
+            color: var(--purple);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* ---------- PRODUCTS ---------- */
+
+        .products {
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .product-card {
+            border: 1px solid #EAECF0;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(16, 24, 40, 0.1);
+        }
+
+        .product-image {
+            height: 270px;
+            background: #F8F9FC;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.07);
+        }
+
+        .product-info {
+            padding: 24px;
+        }
+
+        .product-info small {
+            color: var(--purple);
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .product-info h3 {
+            margin: 8px 0;
+        }
+
+        .rating {
+            color: #F79009;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #98A2B3;
+            font-size: 14px;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 18px;
+        }
+
+        .details-link {
+            color: var(--purple);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* ---------- OFFER BANNER ---------- */
+
+        .offer {
+            background: linear-gradient(110deg, var(--dark), #202D50);
+            color: white;
+            padding: 65px 0;
+        }
+
+        .offer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .offer-content span {
+            color: var(--blue);
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .offer-content h2 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .offer-content p {
+            color: #D0D5DD;
+        }
+
+        .offer-content .btn {
+            white-space: nowrap;
+        }
+
+        /* ---------- WHY CHOOSE US ---------- */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .why-card {
+            padding: 30px 24px;
+            background: white;
+            border-radius: 15px;
+            border: 1px solid #EAECF0;
+            transition: 0.3s;
+        }
+
+        .why-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-6px);
+        }
+
+        .why-card .icon {
+            font-size: 30px;
+            color: var(--purple);
+            margin-bottom: 15px;
+        }
+
+        .why-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* ---------- REVIEWS ---------- */
+
+        .review-section {
+            background: #F0EBFF;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+        }
+
+        .review-card .stars {
+            color: #F79009;
+            margin-bottom: 15px;
+        }
+
+        .review-card p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: var(--dark);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .reviewer h4 {
+            font-size: 14px;
+        }
+
+        .reviewer small {
+            color: var(--muted);
+        }
+
+        /* ---------- GALLERY ---------- */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-item {
+            height: 240px;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ---------- NEWSLETTER ---------- */
+
+        .newsletter {
+            background: var(--dark);
+            color: white;
+            padding: 65px 0;
+        }
+
+        .newsletter-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .newsletter p {
+            color: #D0D5DD;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            width: 45%;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 7px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background: #0B1220;
+            color: white;
+            padding: 60px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #98A2B3;
+            max-width: 300px;
+            margin-top: 18px;
+        }
+
+        footer h3 {
+            margin-bottom: 18px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        footer li a {
+            color: #98A2B3;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        footer li a:hover {
+            color: var(--blue);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #344054;
+            padding-top: 22px;
+            text-align: center;
+            color: #98A2B3;
+            font-size: 13px;
+        }
+
+        /* ---------- RESPONSIVE DESIGN ---------- */
+
+        @media (max-width: 1050px) {
+            .category-grid,
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content {
+                gap: 35px;
+            }
+
+            .hero-image img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                gap: 14px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                width: 90%;
+                margin: auto;
+            }
+
+            .product-grid,
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-content,
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .navbar {
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+
+            .feature-row,
+            .category-grid,
+            .why-grid,
+            .gallery-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .hero-image img {
+                height: 300px;
+                box-shadow: 10px 10px 0 var(--purple);
+            }
+
+            .hero-badge {
+                left: 10px;
+            }
+
+            .offer-content h2 {
+                font-size: 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ---------- HEADER ---------- -->
+
+    <header>
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                Rhythm<span>House</span>
+            </a>
+
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="products.html" class="nav-button">Shop Now</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ---------- HERO ---------- -->
+
+    <section class="hero">
+        <div class="container hero-content">
+
+            <div class="hero-text">
+                <small>Your sound. Your identity.</small>
+
+                <h1>
+                    Find Your<br>
+                    <span>Perfect Rhythm.</span>
+                </h1>
+
+                <p>
+                    Discover premium musical instruments and accessories
+                    designed to bring your music to life.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn">Explore Products →</a>
+                    <a href="about.html" class="outline-btn">Discover Our Story</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="images/gdhit.png" alt="Musical instruments">
+
+                <div class="hero-badge">
+                    <strong>500+</strong>
+                    Musical Products
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- FEATURES ---------- -->
+
+    <section class="features">
+        <div class="container feature-row">
+
+            <div class="feature-item">
+                <div class="feature-icon">🎸</div>
+                <div>
+                    <h4>500+ Products</h4>
+                    <p>Explore our collection</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h4>Quality Checked</h4>
+                    <p>Reliable instruments</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <div>
+                    <h4>Safe Delivery</h4>
+                    <p>Carefully packed orders</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">♫</div>
+                <div>
+                    <h4>For Every Musician</h4>
+                    <p>Beginner to professional</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- CATEGORIES ---------- -->
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span>Explore Collection</span>
+                <h2>Shop By Category</h2>
+                <p>Everything you need to create your own sound.</p>
+            </div>
+
+            <div class="category-grid">
+
+                <div class="category-card">
+                    <img src="images/guitar-category.jpg" alt="Guitars">
+
+                    <div class="category-info">
+                        <h3>Guitars</h3>
+                        <p>Acoustic, electric and bass guitars.</p>
+                        <a href="products.html#guitars">Explore Category →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <img src="images/keyboard-category.jpg" alt="Keyboards">
+
+                    <div class="category-info">
+                        <h3>Keyboards</h3>
+                        <p>Bring melodies to life with every key.</p>
+                        <a href="products.html#keyboards">Explore Category →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <img src="images/drums-category.jpg" alt="Drums">
+
+                    <div class="category-info">
+                        <h3>Drums</h3>
+                        <p>Powerful beats for every performance.</p>
+                        <a href="products.html#drums">Explore Category →</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <img src="images/audio-category.jpg" alt="Audio equipment">
+
+                    <div class="category-info">
+                        <h3>Audio Gear</h3>
+                        <p>Microphones, headphones and more.</p>
+                        <a href="products.html#audio">Explore Category →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------- BEST SELLERS ---------- -->
+
+    <section class="section products">
+        <div class="container">
+
+            <div class="section-heading">
+                <span>Customer Favorites</span>
+                <h2>Best-Selling Products</h2>
+                <p>Popular instruments chosen by music lovers.</p>
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/acoustic-guitar.jpg" alt="Premium acoustic guitar">
+                    </div>
+
+                    <div class="product-info">
+                        <small>BEST SELLER</small>
+                        <h3>Premium Acoustic Guitar</h3>
+                        <div class="rating">★★★★★ 4.9</div>
+
+                        <span class="price">₹12,999</span>
+                        <span class="old-price">₹15,999</span>
+
+                        <div class="product-bottom">
+                            <a href="product-guitar.html" class="details-link">
+                                View Details →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/keyboard.jpg" alt="Professional keyboard">
+                    </div>
+
+                    <div class="product-info">
+                        <small>TOP RATED</small>
+                        <h3>Professional Keyboard</h3>
+                        <div class="rating">★★★★★ 4.8</div>
+
+                        <span class="price">₹18,499</span>
+                        <span class="old-price">₹22,999</span>
+
+                        <div class="product-bottom">
+                            <a href="product-keyboard.html" class="details-link">
+                                View Details →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/drums.jpg" alt="Professional drum set">
+                    </div>
+
+                    <div class="product-info">
+                        <small>PROFESSIONAL PICK</small>
+                        <h3>Complete Drum Set</h3>
+                        <div class="rating">★★★★★ 4.9</div>
+
+                        <span class="price">₹29,999</span>
+                        <span class="old-price">₹35,999</span>
+
+                        <div class="product-bottom">
+                            <a href="product-drums.html" class="details-link">
+                                View Details →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align:center; margin-top:40px;">
+                <a href="products.html" class="btn">View All Products →</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- OFFER ---------- -->
+
+    <section class="offer">
+        <div class="container offer-content">
+
+            <div>
+                <span>LIMITED-TIME OFFER</span>
+                <h2>Make More Music.<br>Spend Less.</h2>
+                <p>Get exciting discounts on selected musical instruments.</p>
+            </div>
+
+            <a href="products.html" class="btn">Shop Offers →</a>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- WHY RHYTHM HOUSE ---------- -->
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span>Why Choose Us?</span>
+                <h2>Made For Music Lovers</h2>
+                <p>We help you find the right tools for your musical journey.</p>
+            </div>
+
+            <div class="why-grid">
+
+                <div class="why-card">
+                    <div class="icon">✦</div>
+                    <h3>Premium Quality</h3>
+                    <p>
+                        Carefully selected products that deliver dependable
+                        performance and excellent sound.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="icon">♬</div>
+                    <h3>Wide Collection</h3>
+                    <p>
+                        Discover instruments and accessories for beginners,
+                        hobbyists and professionals.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="icon">♡</div>
+                    <h3>Customer First</h3>
+                    <p>
+                        We aim to make your shopping experience simple,
+                        smooth and enjoyable.
+                    </p>
+                </div>
+
+                <div class="why-card">
+                    <div class="icon">⚡</div>
+                    <h3>Easy Shopping</h3>
+                    <p>
+                        Browse products, compare options and find your
+                        musical essentials with ease.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------- REVIEWS ---------- -->
+
+    <section class="section review-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span>What Customers Say</span>
+                <h2>Loved By Musicians</h2>
+                <p>Some words from our music-loving community.</p>
+            </div>
+
+            <div class="review-grid">
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        “The guitar quality was excellent and the entire
+                        shopping experience was smooth and easy.”
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">A</div>
+                        <div>
+                            <h4>Arjun Mehta</h4>
+                            <small>Guitar Enthusiast</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        “I found exactly what I needed for my home studio.
+                        The products look premium and reliable.”
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">R</div>
+                        <div>
+                            <h4>Riya Sharma</h4>
+                            <small>Music Producer</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        “Rhythm House has a great collection for musicians
+                        at different levels. Highly recommended.”
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">K</div>
+                        <div>
+                            <h4>Karan Rao</h4>
+                            <small>Drummer</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------- GALLERY ---------- -->
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-heading">
+                <span>Inside The World Of Music</span>
+                <h2>Our Music Gallery</h2>
+                <p>A glimpse into instruments, sound and creativity.</p>
+            </div>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item">
+                    <img src="images/acoustic-guitar-2.jpg" alt="Acoustic guitar">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/keyboard-2.jpg" alt="Keyboard">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/headphones-2.jpg" alt="Headphones">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/drums-2.jpg" alt="Drums">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/studio-microphone-2.jpg" alt="Studio microphone">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/music-accessories-2.jpg" alt="Music accessories">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ---------- NEWSLETTER ---------- -->
+
+    <section class="newsletter">
+        <div class="container newsletter-content">
+
+            <div>
+                <h2>Stay In The Rhythm</h2>
+                <p>Subscribe for new arrivals, special offers and music updates.</p>
+            </div>
+
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- ---------- FOOTER ---------- -->
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        Rhythm<span>House</span>
+                    </a>
+
+                    <p>
+                        Your destination for quality musical instruments,
+                        accessories and everything related to music.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html#guitars">Guitars</a></li>
+                        <li><a href="products.html#keyboards">Keyboards</a></li>
+                        <li><a href="products.html#drums">Drums</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 Rhythm House. All Rights Reserved.
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

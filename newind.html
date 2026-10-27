@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rhythm House | Music Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: #101828;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #6C3BFF;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #00C2FF;
+        }
+
+        .hero {
+            min-height: 450px;
+            padding: 70px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            background: white;
+        }
+
+        .hero-text {
+            max-width: 520px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #6C3BFF;
+        }
+
+        .hero p {
+            color: #667085;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6C3BFF;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #00C2FF;
+        }
+
+        .hero img {
+            width: 45%;
+            height: 310px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        section {
+            padding: 60px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .title h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #667085;
+        }
+
+        .features,
+        .categories,
+        .products,
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature,
+        .category,
+        .product,
+        .review {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px #10182812;
+            transition: 0.3s;
+        }
+
+        .feature:hover,
+        .category:hover,
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: #6C3BFF;
+            margin: 10px 0;
+        }
+
+        .feature p,
+        .category p,
+        .review p {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        .icon {
+            font-size: 35px;
+        }
+
+        .category img,
+        .product img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .category h3,
+        .product h3 {
+            margin: 15px 0 8px;
+        }
+
+        .product .price {
+            color: #6C3BFF;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .product .btn {
+            font-size: 13px;
+            padding: 10px 18px;
+        }
+
+        .offer {
+            background: linear-gradient(120deg, #101828, #6C3BFF);
+            color: white;
+            text-align: center;
+            border-radius: 15px;
+            padding: 45px;
+        }
+
+        .offer h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .offer p {
+            margin-bottom: 20px;
+            color: #D0D5DD;
+        }
+
+        .offer .btn {
+            background: white;
+            color: #6C3BFF;
+        }
+
+        .review strong {
+            display: block;
+            color: #6C3BFF;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: #101828;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            color: #98A2B3;
+            margin: 8px;
+        }
+
+        @media (max-width: 800px) {
+            header,
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                width: 90%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .features,
+            .categories,
+            .products,
+            .reviews {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            Rhythm<span>House</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>
+                Feel the <span>Rhythm.</span><br>
+                Play Your Passion.
+            </h1>
+
+            <p>
+                Discover premium musical instruments and
+                studio essentials for every music lover.
+            </p>
+
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+
+        <img src="images/hero-instruments.jpg"
+             alt="Musical Instruments">
+    </section>
+
+    <!-- FEATURES -->
+    <section>
+        <div class="title">
+            <h2>Why Choose Us?</h2>
+            <p>Everything you need for your musical journey.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🎸</div>
+                <h3>Premium Quality</h3>
+                <p>Quality instruments for every musician.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">💰</div>
+                <h3>Best Prices</h3>
+                <p>Great value for your money.</p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🚚</div>
+                <h3>Safe Delivery</h3>
+                <p>Reliable delivery to your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section>
+        <div class="title">
+            <h2>Shop by Category</h2>
+            <p>Find the perfect instrument for your style.</p>
+        </div>
+
+        <div class="categories">
+            <div class="category">
+                <img src="images/guitar-category.jpg"
+                     alt="Guitars">
+                <h3>Guitars</h3>
+                <p>Acoustic and electric guitars.</p>
+            </div>
+
+            <div class="category">
+                <img src="images/keyboard-category.jpg"
+                     alt="Keyboards">
+                <h3>Keyboards</h3>
+                <p>Digital keyboards and pianos.</p>
+            </div>
+
+            <div class="category">
+                <img src="images/drums-category.jpg"
+                     alt="Drums">
+                <h3>Drums</h3>
+                <p>Powerful beats for your music.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section>
+        <div class="title">
+            <h2>Best Sellers</h2>
+            <p>Popular instruments for music enthusiasts.</p>
+        </div>
+
+        <div class="products">
+            <div class="product">
+                <img src="images/acoustic-guitar.jpg"
+                     alt="Acoustic Guitar">
+
+                <h3>Premium Acoustic Guitar</h3>
+                <div class="price">₹12,999</div>
+
+                <a href="product-guitar.html" class="btn">
+                    View Details
+                </a>
+            </div>
+
+            <div class="product">
+                <img src="images/keyboard.jpg"
+                     alt="Keyboard">
+
+                <h3>Digital Performance Keyboard</h3>
+                <div class="price">₹18,499</div>
+
+                <a href="product-keyboard.html" class="btn">
+                    View Details
+                </a>
+            </div>
+
+            <div class="product">
+                <img src="images/drums.jpg"
+                     alt="Drum Kit">
+
+                <h3>Complete Drum Kit</h3>
+                <div class="price">₹29,999</div>
+
+                <a href="product-drums.html" class="btn">
+                    View Details
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFER -->
+    <section>
+        <div class="offer">
+            <h2>Make More Music</h2>
+
+            <p>
+                Upgrade your setup and turn every idea
+                into a beautiful performance.
+            </p>
+
+            <a href="products.html" class="btn">
+                Explore Products
+            </a>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section>
+        <div class="title">
+            <h2>What Our Customers Say</h2>
+            <p>Experiences from our happy customers.</p>
+        </div>
+
+        <div class="reviews">
+            <div class="review">
+                <p>
+                    “Great quality and a smooth shopping
+                    experience.”
+                </p>
+                <strong>— Aarav</strong>
+            </div>
+
+            <div class="review">
+                <p>
+                    “The product range is perfect for
+                    music lovers.”
+                </p>
+                <strong>— Riya</strong>
+            </div>
+
+            <div class="review">
+                <p>
+                    “Affordable instruments with a
+                    premium feel.”
+                </p>
+                <strong>— Karan</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>RhythmHouse</h2>
+        <p>Your music, your rhythm.</p>
+        <p>&copy; 2026 Rhythm House. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Studio Monitoring Headphones | Rhythm House</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #101828;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #6C3BFF;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00C2FF;
+        }
+
+        .shop-btn {
+            background: #6C3BFF;
+            padding: 11px 20px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .shop-btn:hover {
+            background: #00C2FF;
+        }
+
+        /* ================= BREADCRUMB ================= */
+
+        .breadcrumb-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .breadcrumb {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #6C3BFF;
+            font-weight: 600;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+            color: #98A2B3;
+        }
+
+        /* ================= PRODUCT ================= */
+
+        .product-section {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        /* ================= PRODUCT IMAGE ================= */
+
+        .product-image-box {
+            background: #FFFFFF;
+            border: 1px solid #E4E7EC;
+            border-radius: 18px;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(16, 24, 40, 0.06);
+        }
+
+        .product-image {
+            width: 100%;
+            min-height: 560px;
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 480px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .image-label {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            background: #6C3BFF;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* ================= PRODUCT INFO ================= */
+
+        .product-info {
+            padding-top: 10px;
+        }
+
+        .category {
+            color: #6C3BFF;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .product-info h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .stars {
+            color: #FFB547;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* ================= PRICE ================= */
+
+        .price-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #98A2B3;
+            text-decoration: line-through;
+            font-size: 18px;
+        }
+
+        .discount {
+            display: inline-block;
+            background: #E7F8EF;
+            color: #12B76A;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .stock {
+            color: #039855;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #667085;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            padding: 9px 0;
+            color: #475467;
+            border-bottom: 1px solid #E4E7EC;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #6C3BFF;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .cart-btn,
+        .buy-btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .cart-btn {
+            background: white;
+            color: #6C3BFF;
+            border: 2px solid #6C3BFF;
+        }
+
+        .cart-btn:hover {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        .buy-btn {
+            background: #6C3BFF;
+            color: white;
+            border: 2px solid #6C3BFF;
+        }
+
+        .buy-btn:hover {
+            background: #00C2FF;
+            border-color: #00C2FF;
+        }
+
+        /* ================= TRUST ================= */
+
+        .trust-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            border-top: 1px solid #E4E7EC;
+            padding-top: 20px;
+        }
+
+        .trust-item {
+            text-align: center;
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .trust-icon {
+            display: block;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        /* ================= SPECIFICATIONS ================= */
+
+        .specs-section {
+            background: white;
+            padding: 60px 25px;
+            border-top: 1px solid #E4E7EC;
+            border-bottom: 1px solid #E4E7EC;
+        }
+
+        .specs-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border: 1px solid #E4E7EC;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 16px 20px;
+            border-bottom: 1px solid #E4E7EC;
+        }
+
+        .spec-item:nth-child(odd) {
+            border-right: 1px solid #E4E7EC;
+        }
+
+        .spec-name {
+            color: #667085;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* ================= RELATED PRODUCTS ================= */
+
+        .related-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 25px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .related-card {
+            background: white;
+            border: 1px solid #E4E7EC;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+        }
+
+        .related-image {
+            height: 190px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F5F7FA;
+            overflow: hidden;
+        }
+
+        .related-image img {
+            width: 90%;
+            height: 170px;
+            object-fit: contain;
+        }
+
+        .related-info {
+            padding: 20px;
+        }
+
+        .related-info h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .related-price {
+            color: #6C3BFF;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .view-btn {
+            display: inline-block;
+            border: 1px solid #6C3BFF;
+            color: #6C3BFF;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .view-btn:hover {
+            background: #6C3BFF;
+            color: white;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #101828;
+            color: white;
+            padding: 55px 25px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #6C3BFF;
+        }
+
+        .footer-about {
+            color: #98A2B3;
+            max-width: 330px;
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #98A2B3;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: #00C2FF;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #344054;
+            color: #98A2B3;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                gap: 12px;
+            }
+
+            .product-section {
+                grid-template-columns: 1fr;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .product-info h1 {
+                font-size: 32px;
+            }
+
+            .trust-bar {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spec-item:nth-child(odd) {
+                border-right: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="navbar">
+
+            <a href="index.html" class="logo">
+                Rhythm<span>House</span>
+            </a>
+
+            <nav>
+
+                <a href="index.html">Home</a>
+
+                <a href="products.html">Products</a>
+
+                <a href="about.html">About</a>
+
+                <a href="contact.html">Contact</a>
+
+                <a href="products.html" class="shop-btn">
+                    SHOP NOW
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= BREADCRUMB ================= -->
+
+    <div class="breadcrumb-section">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <span>›</span>
+
+            <a href="products.html">Products</a>
+
+            <span>›</span>
+
+            Studio Monitoring Headphones
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= PRODUCT ================= -->
+
+    <section class="product-section">
+
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-image-box">
+
+            <div class="image-label">
+                STUDIO QUALITY
+            </div>
+
+            <div class="product-image">
+
+                <img
+                    src="images/headphones.jpg"
+                    alt="Studio Monitoring Headphones"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-info">
+
+            <div class="category">
+                Headphones
+            </div>
+
+            <h1>
+                Studio Monitoring Headphones
+            </h1>
+
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span class="rating-text">
+                    4.8 / 5 · 38 Reviews
+                </span>
+
+            </div>
+
+
+            <div class="price-area">
+
+                <div class="price">
+                    ₹5,499
+                </div>
+
+                <div class="old-price">
+                    ₹6,999
+                </div>
+
+            </div>
+
+
+            <div class="discount">
+                21% OFF
+            </div>
+
+
+            <div class="stock">
+                ✓ In Stock · Ready to Ship
+            </div>
+
+
+            <p class="description">
+
+                Experience detailed and balanced sound with these
+                studio monitoring headphones. Designed for music
+                production, recording, mixing, practice and everyday
+                listening, they provide comfortable long-session
+                performance.
+
+            </p>
+
+
+            <h2 class="features-title">
+                Key Features
+            </h2>
+
+
+            <ul class="features">
+
+                <li>
+                    Clear and balanced studio-quality sound
+                </li>
+
+                <li>
+                    Closed-back design for focused listening
+                </li>
+
+                <li>
+                    Comfortable padded ear cushions
+                </li>
+
+                <li>
+                    Adjustable headband for a secure fit
+                </li>
+
+                <li>
+                    Detailed audio for mixing and recording
+                </li>
+
+                <li>
+                    Suitable for musicians, producers and listeners
+                </li>
+
+            </ul>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="action-buttons">
+
+                <a href="cart.html" class="cart-btn">
+                    ADD TO CART
+                </a>
+
+                <a href="checkout.html" class="buy-btn">
+                    BUY NOW
+                </a>
+
+            </div>
+
+
+            <!-- TRUST BAR -->
+
+            <div class="trust-bar">
+
+                <div class="trust-item">
+
+                    <span class="trust-icon">
+                        🚚
+                    </span>
+
+                    Free Delivery
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-icon">
+                        🔒
+                    </span>
+
+                    Secure Payment
+
+                </div>
+
+
+                <div class="trust-item">
+
+                    <span class="trust-icon">
+                        ✓
+                    </span>
+
+                    Quality Checked
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPECIFICATIONS ================= -->
+
+    <section class="specs-section">
+
+        <div class="specs-container">
+
+            <div class="section-title">
+
+                <h2>
+                    Product Specifications
+                </h2>
+
+                <p>
+                    Everything you need to know about these headphones
+                </p>
+
+            </div>
+
+
+            <div class="specs-grid">
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Product Type
+                    </span>
+
+                    <span class="spec-value">
+                        Studio Headphones
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Design
+                    </span>
+
+                    <span class="spec-value">
+                        Closed Back
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Sound
+                    </span>
+
+                    <span class="spec-value">
+                        Balanced Audio
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Usage
+                    </span>
+
+                    <span class="spec-value">
+                        Monitoring / Listening
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Ear Cushions
+                    </span>
+
+                    <span class="spec-value">
+                        Padded
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Headband
+                    </span>
+
+                    <span class="spec-value">
+                        Adjustable
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Best For
+                    </span>
+
+                    <span class="spec-value">
+                        Studio / Music
+                    </span>
+
+                </div>
+
+
+                <div class="spec-item">
+
+                    <span class="spec-name">
+                        Price
+                    </span>
+
+                    <span class="spec-value">
+                        ₹5,499
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RELATED PRODUCTS ================= -->
+
+    <section class="related-section">
+
+        <div class="section-title">
+
+            <h2>
+                You May Also Like
+            </h2>
+
+            <p>
+                Explore more audio products from Rhythm House
+            </p>
+
+        </div>
+
+
+        <div class="related-grid">
+
+
+            <!-- STUDIO MICROPHONE -->
+
+            <div class="related-card">
+
+                <div class="related-image">
+
+                    <img
+                        src="images/studio-microphone.jpg"
+                        alt="Professional Studio Microphone"
+                    >
+
+                </div>
+
+                <div class="related-info">
+
+                    <h3>
+                        Professional Studio Microphone
+                    </h3>
+
+                    <div class="related-price">
+                        ₹8,999
+                    </div>
+
+                    <a href="product-microphone.html" class="view-btn">
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VOCAL MICROPHONE -->
+
+            <div class="related-card">
+
+                <div class="related-image">
+
+                    <img
+                        src="images/vocal-microphone.jpg"
+                        alt="Professional Vocal Microphone"
+                    >
+
+                </div>
+
+                <div class="related-info">
+
+                    <h3>
+                        Professional Vocal Microphone
+                    </h3>
+
+                    <div class="related-price">
+                        ₹4,999
+                    </div>
+
+                    <a href="product-vocal-mic.html" class="view-btn">
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCESSORIES -->
+
+            <div class="related-card">
+
+                <div class="related-image">
+
+                    <img
+                        src="images/music-accessories.jpg"
+                        alt="Essential Music Accessories Kit"
+                    >
+
+                </div>
+
+                <div class="related-info">
+
+                    <h3>
+                        Essential Music Accessories Kit
+                    </h3>
+
+                    <div class="related-price">
+                        ₹1,999
+                    </div>
+
+                    <a href="product-accessories.html" class="view-btn">
+                        VIEW PRODUCT
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+
+            <div>
+
+                <div class="footer-logo">
+                    Rhythm<span>House</span>
+                </div>
+
+                <p class="footer-about">
+
+                    Your trusted destination for quality musical
+                    instruments and accessories. Find your sound
+                    and make every performance memorable.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="products.html">
+                    Products
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Products
+                </h4>
+
+                <a href="product-guitar.html">
+                    Acoustic Guitar
+                </a>
+
+                <a href="product-electric-guitar.html">
+                    Electric Guitar
+                </a>
+
+                <a href="product-keyboard.html">
+                    Keyboard
+                </a>
+
+                <a href="product-drums.html">
+                    Drums
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Support
+                </h4>
+
+                <a href="cart.html">
+                    Shopping Cart
+                </a>
+
+                <a href="checkout.html">
+                    Checkout
+                </a>
+
+                <a href="contact.html">
+                    Help & Support
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Rhythm House. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Rhythm House</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #F5F7FA;
+            color: #101828;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+        header {
+            background: #101828;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #6C3BFF;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #D0D5DD;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: white;
+        }
+
+        .shop-btn {
+            background: #6C3BFF;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+        }
+
+        .shop-btn:hover {
+            background: #5730D6;
+        }
+
+        /* HERO */
+        .page-hero {
+            background: #101828;
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .page-hero p {
+            color: #00C2FF;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .page-hero h1 {
+            font-size: 46px;
+            margin-bottom: 12px;
+        }
+
+        .page-hero span {
+            color: #6C3BFF;
+        }
+
+        .page-hero small {
+            color: #98A2B3;
+            font-size: 15px;
+        }
+
+        /* CHECKOUT */
+        .checkout-section {
+            width: 86%;
+            max-width: 1200px;
+            margin: 60px auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 35px;
+        }
+
+        .checkout-box {
+            background: white;
+            padding: 35px;
+            border-radius: 14px;
+            border: 1px solid #E4E7EC;
+        }
+
+        .checkout-box h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .checkout-box > p {
+            color: #667085;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        /* FORM */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            color: #101828;
+            background: white;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #6C3BFF;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* PAYMENT */
+        .payment-title {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .payment-option {
+            border: 1px solid #E4E7EC;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .payment-option input {
+            width: auto;
+        }
+
+        .payment-option label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        /* ORDER SUMMARY */
+        .summary-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .summary-title h2 {
+            margin: 0;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #E4E7EC;
+            margin-bottom: 20px;
+        }
+
+        .item-info {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .item-image {
+            width: 65px;
+            height: 65px;
+            background: #F5F7FA;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .item-info h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .item-info p {
+            color: #667085;
+            font-size: 13px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .summary-row span:first-child {
+            color: #667085;
+        }
+
+        .discount {
+            color: #12B76A;
+        }
+
+        .total {
+            border-top: 1px solid #E4E7EC;
+            margin-top: 15px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .place-order {
+            display: block;
+            width: 100%;
+            background: #6C3BFF;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 14px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+        }
+
+        .place-order:hover {
+            background: #5730D6;
+        }
+
+        .demo-note {
+            text-align: center;
+            color: #98A2B3;
+            font-size: 11px;
+            margin-top: 12px;
+        }
+
+        /* SECURITY */
+        .secure-box {
+            margin-top: 25px;
+            background: #F5F7FA;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .secure-box strong {
+            font-size: 13px;
+        }
+
+        .secure-box p {
+            color: #667085;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101828;
+            color: white;
+            padding: 50px 7% 25px;
+            margin-top: 70px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #98A2B3;
+            margin-top: 15px;
+            max-width: 350px;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .footer-column h3 {
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #98A2B3;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #344054;
+            padding-top: 22px;
+            color: #98A2B3;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            nav {
+                gap: 15px;
+            }
+
+            .checkout-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-hero h1 {
+                font-size: 34px;
+            }
+
+            .checkout-section {
+                width: 92%;
+                margin: 35px auto;
+            }
+
+            .checkout-box {
+                padding: 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            Rhythm<span>House</span>
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="products.html">PRODUCTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="products.html" class="shop-btn">SHOP NOW</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="page-hero">
+
+        <p>CHECKOUT</p>
+
+        <h1>COMPLETE YOUR <span>ORDER.</span></h1>
+
+        <small>Enter your details and place your order.</small>
+
+    </section>
+
+
+    <!-- CHECKOUT SECTION -->
+    <section class="checkout-section">
+
+        <!-- CUSTOMER DETAILS -->
+        <div class="checkout-box">
+
+            <h2>Customer Details</h2>
+
+            <p>Please enter your information below.</p>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label>PIN Code</label>
+                    <input type="text" placeholder="Enter PIN code">
+                </div>
+
+                <div class="form-group full">
+                    <label>Address</label>
+                    <textarea placeholder="Enter your complete address"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" placeholder="Enter your city">
+                </div>
+
+                <div class="form-group">
+                    <label>State</label>
+                    <select>
+                        <option>Select State</option>
+                        <option>Maharashtra</option>
+                        <option>Gujarat</option>
+                        <option>Karnataka</option>
+                        <option>Delhi</option>
+                        <option>Goa</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+            <h3 class="payment-title">Payment Method</h3>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="cod" checked>
+                <label for="cod">Cash on Delivery</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="upi">
+                <label for="upi">UPI Payment</label>
+            </div>
+
+            <div class="payment-option">
+                <input type="radio" name="payment" id="card">
+                <label for="card">Credit / Debit Card</label>
+            </div>
+
+        </div>
+
+
+        <!-- ORDER SUMMARY -->
+        <div class="checkout-box">
+
+            <div class="summary-title">
+                <h2>Your Order</h2>
+                <span>1 Item</span>
+            </div>
+
+
+            <div class="item">
+
+                <div class="item-info">
+
+                    <div class="item-image">
+                        🎸
+                    </div>
+
+                    <div>
+                        <h3>Premium Acoustic Guitar</h3>
+                        <p>Quantity: 1</p>
+                    </div>
+
+                </div>
+
+                <div class="item-price">
+                    ₹12,999
+                </div>
+
+            </div>
+
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong>₹12,999</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery</span>
+                <strong>FREE</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Discount</span>
+                <strong class="discount">- ₹1,500</strong>
+            </div>
+
+
+            <div class="total">
+
+                <span>Total</span>
+
+                <span>₹11,499</span>
+
+            </div>
+
+
+            <a href="order-success.html" class="place-order">
+                PLACE ORDER →
+            </a>
+
+            <p class="demo-note">
+                Demo checkout page for Rhythm House.
+            </p>
+
+
+            <div class="secure-box">
+
+                <strong>🔒 Secure Shopping</strong>
+
+                <p>
+                    Your information is safe with Rhythm House.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    Rhythm<span>House</span>
+                </div>
+
+                <p>
+                    Your trusted destination for musical instruments,
+                    audio equipment and everything you need to find your rhythm.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>QUICK LINKS</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>SHOP</h3>
+
+                <a href="products.html">Guitars</a>
+                <a href="products.html">Keyboards</a>
+                <a href="products.html">Drums</a>
+                <a href="products.html">Audio Gear</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Rhythm House. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>
